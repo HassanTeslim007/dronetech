@@ -35,3 +35,5 @@ Each drone will have
 - seperate your logic from ui
 - add comments to your code for easy reading
 
+include your name and email in your readme file.
+
