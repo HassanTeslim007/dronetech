@@ -47,11 +47,10 @@ class HomePage extends StatelessWidget {
         data: Theme.of(context).copyWith(
             floatingActionButtonTheme: FloatingActionButtonThemeData(
                 extendedSizeConstraints: BoxConstraints.tightFor(
-                    height: height * 0.05, width: width * 0.3))),
+                    height: height * 0.05, width: width * 0.4))),
         child: FloatingActionButton.extended(
           onPressed: () {
             controller.addDrone(context);
-            // controller.deleteDrone('Heli H7');
           },
           label: const Text('Add Drone'),
           icon: const Icon(Icons.add),

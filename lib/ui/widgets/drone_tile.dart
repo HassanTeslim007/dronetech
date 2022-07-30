@@ -13,12 +13,30 @@ class DroneTile extends StatelessWidget {
         drone.id!,
         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
       ),
-      subtitle:
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(drone.manufacturer!),
-        Text('Serviced: ${drone.serviced!}'),
-        Text('Date Acquired: ${drone.acquisitionDate!}'),
-      ]),
+      subtitle: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Manufacturer: ${drone.manufacturer!}'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const Text('Serviced: '),
+                    Text(
+                      drone.serviced!.toString(),
+                      style: TextStyle(
+                          color: drone.serviced == false
+                              ? Colors.red
+                              : Colors.green),
+                    ),
+                  ],
+                ),
+                Text('Date Acquired: ${drone.acquisitionDate!}'),
+              ],
+            ),
+          ]),
     );
   }
 }

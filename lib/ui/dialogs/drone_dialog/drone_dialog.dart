@@ -95,7 +95,7 @@ class _DroneDialogState extends State<DroneDialog> {
                       children: [
                         SizedBox(
                           width: width / 2.5,
-                          height: height * 0.046,
+                          //height: height * 0.05,
                           child: DropdownButtonFormField<String>(
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
