@@ -25,16 +25,23 @@ class HomePage extends StatelessWidget {
               return Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: width * 0.05, vertical: height * 0.02),
-                child: ListView(
-                    children: drones!
-                        .map((drone) => Dismissible(
-                            background: Container(color: Colors.red),
-                            key: Key(drone.id!),
-                            onDismissed: (direction) {
-                              controller.deleteDrone(drone.id!, context);
-                            },
-                            child: DroneTile(drone: drone)))
-                        .toList()),
+                child: RefreshIndicator(
+                  onRefresh: () async {
+                    // should return a future but data is fetched in real time in this case. can be altered
+                    // ignore: await_only_futures
+                    await controller.fetchDrones();
+                  },
+                  child: ListView(
+                      children: drones!
+                          .map((drone) => Dismissible(
+                              background: Container(color: Colors.red),
+                              key: Key(drone.id!),
+                              onDismissed: (direction) {
+                                controller.deleteDrone(drone.id!, context);
+                              },
+                              child: DroneTile(drone: drone)))
+                          .toList()),
+                ),
               );
             } else if (snapshot.hasError) {
               return const Center(child: Text('Something is Wrong'));

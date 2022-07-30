@@ -8,35 +8,40 @@ class DroneTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        drone.id!,
-        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+    return Card(
+      elevation: 3,
+      shadowColor: Colors.grey,
+      child: ListTile(
+        title: Text(
+          drone.id!,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        subtitle: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Manufacturer: ${drone.manufacturer!}'),
+              Text('Weight Capacity: ${drone.weight}'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const Text('Serviced: '),
+                      Text(
+                        drone.serviced!.toString(),
+                        style: TextStyle(
+                            color: drone.serviced == false
+                                ? Colors.red
+                                : Colors.green),
+                      ),
+                    ],
+                  ),
+                  Text('Date Acquired: ${drone.acquisitionDate!}'),
+                ],
+              ),
+            ]),
       ),
-      subtitle: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Manufacturer: ${drone.manufacturer!}'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const Text('Serviced: '),
-                    Text(
-                      drone.serviced!.toString(),
-                      style: TextStyle(
-                          color: drone.serviced == false
-                              ? Colors.red
-                              : Colors.green),
-                    ),
-                  ],
-                ),
-                Text('Date Acquired: ${drone.acquisitionDate!}'),
-              ],
-            ),
-          ]),
     );
   }
 }
