@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../../model/drone.dart';
 
 class DroneTile extends StatelessWidget {
   final Drone drone;
-  const DroneTile({Key? key,required this.drone}) : super(key: key);
+  const DroneTile({Key? key, required this.drone}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
