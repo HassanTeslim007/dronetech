@@ -26,7 +26,7 @@ class Drone {
     data['weight'] = weight;
     data['manufacturer'] = manufacturer;
     data['serviced'] = serviced;
-    data['acquisitonDate'] = acquisitionDate;
+    data['acquisitionDate'] = acquisitionDate;
     return data;
   }
 }
